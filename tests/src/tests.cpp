@@ -60,8 +60,9 @@ TEST_CASE("linked_list") {
 
 		// (1^2)^2 1 + (2^2)^2 + (3^2)^2 = 1^4 + 2^4 + 3^4 = 98
 		REQUIRE(sum == 98);
+		
 	}
-}
+} 
 
 TEST_CASE("btree") {
 
@@ -80,6 +81,7 @@ TEST_CASE("btree") {
   //       /     \        /
   //      7      12      42
   */
+ 
 	struct tree_node* root = NULL;
 
 	root = Initialize(root);

@@ -24,19 +24,34 @@ void free_list(node *p) {
 
 /* print list to console */
 void print_list(node *p) {
+    printf("%d, ",p->value);
+    if(p->next != NULL){ /* Recursively prints next. */
+      print_list(p->next);
+   }
+  }
   // Add your code for exercise 1
   // There is NO testcode for this
-}
+
 
 int sum_squares(node *p) {
-  // Add your code for excercise 2
+  if(p == NULL) /* If there is nothing there return zero. */
+    return 0;
+  if(p->next != NULL) {
+    return sum_squares(p->next) + p->value * p->value; /* Adds the previous values together and squares them using recursion. */
+  }
+  else {
+  return p->value * p->value; /* When at the end square. */
+  } 
   // You can find the tests in tests.cpp
-  return -1;
-}
+} 
 
 typedef int (*fn_int_to_int)(int);
 
 node *map(node *p, fn_int_to_int f) { 
+if(p != NULL) {
+  node* New_List = make_node(f(p->value), map(p->next,f)); /* Makes a new list using recursion, can be used with anything function on the list. */
+  return New_List; 
+}
   // Add your code for excercise 3
   
   return NULL; 
